@@ -1,0 +1,36 @@
+<!-- =====================================================================
+     MÓDULO 09 · Entidades que ya confían en nosotros (Figma: Frame 2087326431 4049:10141)
+     Autónomo: HTML + CSS con prefijo .cb-entidades. Sin JavaScript.
+     Los logos son una sola imagen exportada desde Figma (el bloque tiene más
+     de 50 vectores sueltos).
+     ===================================================================== -->
+<section class="cb-entidades" aria-labelledby="cb-entidades-title">
+  <h2 id="cb-entidades-title" class="cb-entidades__title">Entidades que ya confían en nosotros</h2>
+  <img class="cb-entidades__logos" src="logos-bancos.svg" width="1280" height="359"
+       alt="Banco de Bogotá, Davivienda, BBVA, Ding, Scotiabank, Servibanca, Grupo Aval, Bancolombia, Coopcentral y otras entidades" />
+</section>
+
+<style>
+.cb-entidades {
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1280px;
+  height: 353px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-entidades__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding-top: 92px;
+  font: 400 40px/48px var(--cb-font-medium);
+  color: #1d1d1d;
+  text-align: center;
+}
+.cb-entidades__logos { position: absolute; top: 36px; left: 0; display: block; width: 1280px; max-width: none; height: 359px; }
+</style>

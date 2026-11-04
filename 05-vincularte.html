@@ -1,0 +1,236 @@
+<!-- =====================================================================
+     MÓDULO 05 · ¿Cómo puedes vincularte? (Figma: Frame 2087326350 4087:4513)
+     Dos estados con transición suave (smart animate) al pasar el cursor:
+       · Predeterminado (4087:4514) → banner oscuro con el título.
+       · Hover / Propiedad 13 (4087:4558) → panel "Proceso de vinculación".
+     Autónomo: HTML + CSS con prefijo .cb-vincularte. Sin JavaScript.
+     ===================================================================== -->
+<section class="cb-vincularte" aria-labelledby="cb-vincularte-title" tabindex="0">
+
+  <!-- ===== Estado predeterminado: banner oscuro ===== -->
+  <div class="cb-vincularte__default">
+    <div class="cb-vincularte__layer cb-vincularte__layer--1"><img src="vincularte-1.png" alt="" /></div>
+    <div class="cb-vincularte__layer cb-vincularte__layer--2"><img src="vincularte-2.png" alt="" /></div>
+    <h2 id="cb-vincularte-title" class="cb-vincularte__title">¿Cómo puedes<br />vincularte?</h2>
+  </div>
+
+  <!-- ===== Estado hover: proceso de vinculación ===== -->
+  <div class="cb-vincularte__hover" aria-hidden="true">
+    <div class="cb-vincularte__block">
+      <!-- Panel claro al fondo (se solapa bajo la foto, como en Figma) -->
+      <div class="cb-vincularte__panel">
+        <div class="cb-vincularte__content">
+          <h3 class="cb-vincularte__heading">Proceso de vinculación</h3>
+
+          <div class="cb-vincularte__step">
+            <div class="cb-vincularte__step-head">
+              <span class="cb-vincularte__badge cb-vincularte__badge--ring">1</span>
+              <span class="cb-vincularte__step-title">Registra tu empresa</span>
+            </div>
+            <p class="cb-vincularte__step-text">Completa el formulario con los datos de tu organización, tu solución, tus capacidades y tu interés en trabajar con Credibanco.</p>
+          </div>
+
+          <div class="cb-vincularte__step">
+            <div class="cb-vincularte__step-head">
+              <span class="cb-vincularte__badge">2</span>
+              <span class="cb-vincularte__step-title">Conversamos en una sesión</span>
+            </div>
+            <p class="cb-vincularte__step-text">En una sesión de 60 minutos conocemos tu solución y tu base de clientes para identificar qué puede aportarte nuestro ecosistema de pagos.</p>
+          </div>
+
+          <div class="cb-vincularte__step">
+            <div class="cb-vincularte__step-head">
+              <span class="cb-vincularte__badge">3</span>
+              <span class="cb-vincularte__step-title">Definimos la vinculación</span>
+            </div>
+            <p class="cb-vincularte__step-text">Acordamos el modelo de trabajo, las responsabilidades y las condiciones de la alianza.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Foto encima, a la izquierda -->
+      <div class="cb-vincularte__photo"><img src="vincularte-2.png" alt="" /></div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+.cb-vincularte {
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-bold: "Gilroy-Bold", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-regular: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-tertiary: #067875;
+  --cb-primary-10: #ebfffe;
+  --cb-primary-50: #00afaa;
+  --cb-text: #1d1d1d;
+
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1280px;
+  height: 642px;
+  margin: 0 auto;
+  overflow: hidden;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-vincularte *, .cb-vincularte *::before, .cb-vincularte *::after { box-sizing: border-box; }
+.cb-vincularte img { display: block; }
+
+/* Las dos capas de estado ocupan todo el frame y se funden entre sí.
+   Transición tipo "smart animate": fundido + ligero zoom/desplazamiento. */
+.cb-vincularte__default,
+.cb-vincularte__hover {
+  position: absolute;
+  inset: 0;
+  transition: opacity .35s cubic-bezier(.4, 0, .2, 1),
+              transform .45s cubic-bezier(.4, 0, .2, 1);
+  will-change: opacity, transform;
+}
+
+/* ===== Estado predeterminado ===== */
+.cb-vincularte__default {
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transform: scale(1);
+}
+.cb-vincularte__layer { position: absolute; left: 0; width: 1280px; height: 854px; }
+.cb-vincularte__layer img { width: 100%; height: 100%; object-fit: cover; }
+.cb-vincularte__layer::after { content: ""; position: absolute; inset: 0; }
+.cb-vincularte__layer--1 { top: -59px; }
+.cb-vincularte__layer--1::after { background: rgba(0, 0, 0, .31); }
+.cb-vincularte__layer--2 { top: -106px; }
+.cb-vincularte__layer--2::after { background: rgba(0, 0, 0, .7); }
+.cb-vincularte__title {
+  position: relative;
+  width: 773px;
+  margin: 0 0 0 122px;
+  font: 400 64px/72px var(--cb-font-medium);
+  color: #fff;
+}
+
+/* ===== Estado hover =====
+   Bloque centrado foto + panel, con las proporciones exactas de Figma
+   (frame 1280×642). El panel (629px) y la foto (441px) se solapan como en
+   el diseño, formando un único bloque de 983px de ancho, centrado. */
+.cb-vincularte__hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+.cb-vincularte__block {
+  position: relative;
+  width: 983px;
+  height: 529px;
+}
+.cb-vincularte__photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 441px;
+  height: 529px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.cb-vincularte__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .2);
+  border-radius: 40px;
+}
+.cb-vincularte__photo img {
+  position: absolute;
+  top: 0;
+  left: -26.36%;
+  width: 179.86%;
+  height: 100%;
+  object-fit: cover;
+}
+.cb-vincularte__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 629px;
+  height: 529px;
+  background: var(--cb-primary-10);
+  border-radius: 40px;
+}
+.cb-vincularte__content {
+  position: absolute;
+  top: 50%;
+  /* El texto arranca pasada la zona que cubre la foto (≈127px de solape). */
+  left: 169px;
+  width: 373px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transform: translateY(-50%);
+}
+.cb-vincularte__heading {
+  margin: 0;
+  font: 400 32px/normal var(--cb-font-medium);
+  color: var(--cb-tertiary);
+  text-shadow: 0 6px 10px rgba(67, 67, 67, .1);
+}
+.cb-vincularte__step { display: flex; flex-direction: column; gap: 12px; }
+.cb-vincularte__step-head { display: flex; align-items: center; gap: 12px; }
+.cb-vincularte__badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--cb-tertiary);
+  font: 400 24px/24px var(--cb-font-bold);
+  color: #fff;
+}
+/* El paso 1 lleva un anillo/círculo claro bajo el badge (Ellipse 159). */
+.cb-vincularte__badge--ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--cb-primary-50);
+}
+.cb-vincularte__step-title {
+  font: 400 20px/24px var(--cb-font-medium);
+  color: var(--cb-text);
+}
+.cb-vincularte__step-text {
+  margin: 0;
+  font: 400 16px/24px var(--cb-font-regular);
+  color: var(--cb-text);
+}
+
+/* ===== Disparador del smart animate (entrar/salir con el mouse) ===== */
+.cb-vincularte:hover .cb-vincularte__default,
+.cb-vincularte:focus-within .cb-vincularte__default {
+  opacity: 0;
+  transform: scale(.98);
+}
+.cb-vincularte:hover .cb-vincularte__hover,
+.cb-vincularte:focus-within .cb-vincularte__hover {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-vincularte__default,
+  .cb-vincularte__hover {
+    transition: opacity .2s ease;
+    transform: none !important;
+  }
+}
+</style>

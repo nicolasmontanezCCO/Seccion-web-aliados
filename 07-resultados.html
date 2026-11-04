@@ -1,0 +1,42 @@
+<!-- =====================================================================
+     MÓDULO 07 · Nuestros resultados (Figma: Frame 2087326508 4041:6447)
+     Autónomo: HTML + CSS con prefijo .cb-resultados. Sin JavaScript.
+     Nota: las cifras (00%, 0,0%, 000) y los textos en rojo vienen así en Figma;
+     parecen contenido pendiente de confirmar.
+     ===================================================================== -->
+<section class="cb-resultados" aria-labelledby="cb-resultados-title">
+  <div class="cb-resultados__inner">
+    <h2 id="cb-resultados-title" class="cb-resultados__title">Nuestros resultados hablan por nosotros.</h2>
+    <dl class="cb-resultados__grid">
+      <div class="cb-resultados__stat"><dt>00%</dt><dd>Entidades financieras conectadas con nuestros procesos de pago.</dd></div>
+      <div class="cb-resultados__stat"><dt>0,0%</dt><dd>Incremento sostenido del volumen total de transacciones dentro del ecosistema de switches.</dd></div>
+      <div class="cb-resultados__stat"><dt>000</dt><dd>Aceleración significativa en el volumen de transacciones procesadas, consolidando la expansión del mercado.</dd></div>
+      <div class="cb-resultados__stat"><dt>105</dt><dd>Una red robusta de establecimientos operando y procesando pagos con Credibanco en todo el país.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<style>
+.cb-resultados {
+  --cb-text: #1d1d1d;
+  --cb-error: #ef4444;
+  --cb-font-regular: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 125px;
+  background: #f6f9fc;
+  border-radius: 42px;
+  color: var(--cb-text);
+  -webkit-font-smoothing: antialiased;
+}
+.cb-resultados h2, .cb-resultados dl, .cb-resultados dd { margin: 0; }
+.cb-resultados__inner { display: flex; align-items: center; width: 1030px; }
+.cb-resultados__title { flex-shrink: 0; width: 396px; font: 400 48px/normal var(--cb-font-medium); }
+.cb-resultados__grid { display: grid; grid-template-columns: repeat(2, 293px); column-gap: 48px; row-gap: 40px; width: 634px; }
+.cb-resultados__stat { display: flex; flex-direction: column; gap: 16px; }
+.cb-resultados__stat dt { font: 400 80px/88px var(--cb-font-medium); white-space: nowrap; }
+.cb-resultados__stat dd { font: 400 16px/24px var(--cb-font-regular); color: var(--cb-error); }
+</style>

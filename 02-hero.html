@@ -1,0 +1,82 @@
+<!-- =====================================================================
+     MÓDULO 02 · Hero (Figma: Hero 4031:11731)
+     Autónomo: HTML + CSS con prefijo .cb-hero. Sin JavaScript.
+     Los botones apuntan a #contacto (módulo 10) y #tipos-aliado (módulo 04).
+     ===================================================================== -->
+<section class="cb-hero" aria-labelledby="cb-hero-title">
+  <img class="cb-hero__bg" src="hero-bg.png" alt="" />
+  <div class="cb-hero__content">
+    <span class="cb-hero__badge">Programa de Aliados Estratégicos</span>
+    <h1 id="cb-hero-title" class="cb-hero__title">Conviértete en Aliado de CCO<br />y creemos nuevas oportunidades juntos</h1>
+    <p class="cb-hero__text">Amplía tu oferta comercial, integra tu tecnología o combina tu solución con nuestras capacidades para generar valor para más comercios.</p>
+    <div class="cb-hero__actions">
+      <a class="cb-hero__btn cb-hero__btn--primary" href="#contacto">Quiero ser aliado</a>
+      <a class="cb-hero__btn cb-hero__btn--outline" href="#tipos-aliado">Conoce los tipos de aliados</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.cb-hero {
+  --cb-brand-primary: #ffb600;
+  --cb-brand-primary-hover: #f5a300;
+  --cb-info-subtle: #eef6ff;
+  --cb-info: #084179;
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-semibold: "Gilroy-SemiBold", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-bold: "Gilroy-Bold", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1280px;
+  height: 498px;
+  margin: 0 auto;
+  padding: 80px 120px;
+  overflow: hidden;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-hero *, .cb-hero *::before, .cb-hero *::after { box-sizing: border-box; }
+.cb-hero h1, .cb-hero p { margin: 0; }
+.cb-hero__bg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.cb-hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .6); }
+.cb-hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 338px;
+}
+.cb-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 4px 16px;
+  background: var(--cb-info-subtle);
+  border-radius: 24px;
+  font: 400 12px/16px var(--cb-font-bold);
+  color: var(--cb-info);
+  white-space: nowrap;
+}
+.cb-hero__title { font: 400 48px/53px var(--cb-font-semibold); white-space: nowrap; }
+.cb-hero__text { width: 701px; max-width: 100%; font: 400 20px/24px var(--cb-font-medium); letter-spacing: .16px; }
+.cb-hero__actions { display: flex; gap: 16px; }
+.cb-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font: 400 16px/24px var(--cb-font-bold);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .15s ease;
+}
+.cb-hero__btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.cb-hero__btn--primary { background: var(--cb-brand-primary); color: #000; }
+.cb-hero__btn--primary:hover { background: var(--cb-brand-primary-hover); }
+.cb-hero__btn--outline { border: 1.5px solid #fff; color: #fff; }
+.cb-hero__btn--outline:hover { background: rgba(255, 255, 255, .12); }
+</style>

@@ -1,0 +1,160 @@
+<!-- =====================================================================
+     MÓDULO 08 · Preguntas frecuentes (Figma: Contenedor FAQS 4049:9210)
+     Autónomo: HTML + CSS + JS con prefijo .cb-faq.
+     Pestañas y acordeón accesibles por teclado. Solo "Generales" tiene
+     contenido en el diseño; las demás pestañas cambian el estado visual.
+     ===================================================================== -->
+<section class="cb-faq" aria-labelledby="cb-faq-title">
+  <div class="cb-faq__aside">
+    <div class="cb-faq__heading">
+      <h2 id="cb-faq-title" class="cb-faq__title">Preguntas frecuentes</h2>
+      <p class="cb-faq__subtitle">Soluciona tus dudas</p>
+    </div>
+    <div class="cb-faq__img"><img src="faq.png" alt="" /></div>
+  </div>
+
+  <div class="cb-faq__main">
+    <div class="cb-faq__tabs" role="tablist" aria-label="Categorías de preguntas">
+      <button type="button" class="cb-faq__tab is-active" role="tab" aria-selected="true">Generales</button>
+      <button type="button" class="cb-faq__tab" role="tab" aria-selected="false">Aliado Comercial</button>
+      <button type="button" class="cb-faq__tab" role="tab" aria-selected="false">Aliado Tecnológico</button>
+      <button type="button" class="cb-faq__tab" role="tab" aria-selected="false">Aliado soluciones</button>
+    </div>
+
+    <div class="cb-faq__accordion" role="tabpanel">
+      <div class="cb-faq__item is-open">
+        <h3><button type="button" class="cb-faq__trigger" aria-expanded="true">¿Qué es el Programa de Aliados de Credibanco?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3>
+        <div class="cb-faq__panel" role="region">
+          <p>Un modelo de relación donde ambas partes generan valor mutuo: tú amplías tu oferta y tus ingresos, y nosotros llevamos nuestro ecosistema de pagos a nuevos mercados.</p>
+        </div>
+      </div>
+      <!-- Las siguientes preguntas no tienen respuesta en el diseño: añadir un .cb-faq__panel con el texto cuando exista. -->
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué tipos de aliado existen?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Puedo pertenecer a más de un tipo?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué requisitos mínimos debo cumplir?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué puede dejarme fuera del programa?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Cómo es el proceso de vinculación?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué aporta Credibanco?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.cb-faq {
+  --cb-primary-10: #ebfffe;
+  --cb-primary-50: #00afaa;
+  --cb-text-secondary: #5b5c5c;
+  --cb-neutral: #cbcccc;
+  --cb-font-regular: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-bold: "Gilroy-Bold", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  max-width: 1280px;
+  height: 878px;
+  margin: 0 auto;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-faq *, .cb-faq *::before, .cb-faq *::after { box-sizing: border-box; }
+.cb-faq h2, .cb-faq h3, .cb-faq p { margin: 0; }
+.cb-faq img { display: block; }
+.cb-faq :focus-visible { outline: 3px solid var(--cb-primary-50); outline-offset: 2px; }
+
+.cb-faq__aside { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; width: 427px; height: 780px; padding: 16px; }
+.cb-faq__heading { display: flex; flex-direction: column; gap: 11px; padding: 33px 90px; white-space: nowrap; color: #000; }
+.cb-faq__title { font: 400 32px/40px var(--cb-font-bold); }
+.cb-faq__subtitle { font: 400 16px/24px var(--cb-font-regular); letter-spacing: .16px; }
+.cb-faq__img { position: relative; width: 333px; height: 341px; overflow: hidden; border-radius: 36px 32px 32px 37px; }
+.cb-faq__img img { position: absolute; top: 0; left: -41.48%; width: 194.43%; max-width: none; height: 100%; }
+.cb-faq__img::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .2); }
+
+.cb-faq__main { display: flex; flex-direction: column; gap: 10px; padding: 161px 36px; }
+.cb-faq__tabs { display: flex; width: 631px; }
+.cb-faq__tab {
+  flex: 1;
+  height: 40px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 0;
+  border-bottom: 1.5px solid var(--cb-neutral);
+  font: 400 16px/24px var(--cb-font-regular);
+  letter-spacing: .16px;
+  color: var(--cb-text-secondary);
+  cursor: pointer;
+}
+.cb-faq__tab.is-active { border-bottom: 3px solid var(--cb-primary-50); font-family: var(--cb-font-bold); letter-spacing: 0; color: var(--cb-primary-50); }
+
+.cb-faq__accordion { display: flex; flex-direction: column; gap: 11px; width: 631px; }
+.cb-faq__item { min-width: 100px; background: #fff; border-radius: 8px; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .15)); }
+.cb-faq__item.is-open { background: var(--cb-primary-10); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .25)); }
+.cb-faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  border: 0;
+  font: 400 16px/24px var(--cb-font-bold);
+  color: #000;
+  text-align: left;
+  cursor: pointer;
+}
+.cb-faq__trigger img { flex-shrink: 0; transition: transform .2s ease; }
+.cb-faq__trigger[aria-expanded="true"] img { transform: rotate(180deg); }
+.cb-faq__panel { padding: 0 16px 16px; }
+.cb-faq__panel p { font: 400 12px/16px "Century Gothic", var(--cb-font-regular); color: #000; }
+</style>
+
+<script>
+(function () {
+  'use strict';
+  document.querySelectorAll('.cb-faq:not([data-cb-init])').forEach(function (root, n) {
+    root.setAttribute('data-cb-init', '');
+
+    // Pestañas
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('.cb-faq__tab'));
+    function activate(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.tabIndex = tab.classList.contains('is-active') ? 0 : -1;
+      tab.addEventListener('click', function () { activate(tab, false); });
+      tab.addEventListener('keydown', function (e) {
+        var step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (!step) return;
+        e.preventDefault();
+        activate(tabs[(i + step + tabs.length) % tabs.length], true);
+      });
+    });
+
+    // Acordeón (ids generados para no chocar si el módulo se usa más de una vez)
+    root.querySelectorAll('.cb-faq__item').forEach(function (item, i) {
+      var trigger = item.querySelector('.cb-faq__trigger');
+      var panel = item.querySelector('.cb-faq__panel');
+      if (panel) {
+        var id = 'cb-faq-' + n + '-' + i;
+        panel.id = id;
+        trigger.id = id + '-btn';
+        trigger.setAttribute('aria-controls', id);
+        panel.setAttribute('aria-labelledby', trigger.id);
+        panel.hidden = trigger.getAttribute('aria-expanded') !== 'true';
+      }
+      trigger.addEventListener('click', function () {
+        var open = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!open));
+        item.classList.toggle('is-open', !open);
+        if (panel) panel.hidden = open;
+      });
+    });
+  });
+})();
+</script>

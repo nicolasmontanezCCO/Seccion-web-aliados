@@ -1,0 +1,134 @@
+<!-- =====================================================================
+     MÓDULO 06 · Beneficios de ser Aliado (Figma: Frame 2087326373 4049:10084)
+     Autónomo: HTML + CSS con prefijo .cb-beneficios. Sin JavaScript.
+     La columna derecha hace scroll vertical, como en el diseño.
+     ===================================================================== -->
+<section class="cb-beneficios" aria-labelledby="cb-beneficios-title">
+  <div class="cb-beneficios__inner">
+    <div class="cb-beneficios__copy">
+      <span class="cb-beneficios__badge">Por qué Credibanco</span>
+      <h2 id="cb-beneficios-title" class="cb-beneficios__title">Beneficios de ser Aliado de CCO</h2>
+      <p class="cb-beneficios__text">Conecta tus capacidades con nuestro ecosistema para fortalecer tu oferta, desarrollar nuevas oportunidades y llegar a más comercios.</p>
+    </div>
+    <ul class="cb-beneficios__scroll" tabindex="0" aria-label="Lista de beneficios">
+      <li class="cb-beneficios__item">
+        <span class="cb-beneficios__icon"><img src="trending-up.svg" width="30" height="30" alt="" /></span>
+        <p>Recibe acompañamiento para integrar y activar soluciones.</p>
+      </li>
+      <li class="cb-beneficios__item">
+        <span class="cb-beneficios__icon"><img src="sdk.svg" width="30" height="30" alt="" /></span>
+        <p>APIs claras, estables y fáciles de integrar.</p>
+      </li>
+      <li class="cb-beneficios__item">
+        <span class="cb-beneficios__icon"><img src="settings.svg" width="30" height="30" alt="" /></span>
+        <p>Capacidad de escalar<br />con tu volumen de transacciones.</p>
+      </li>
+      <li class="cb-beneficios__item">
+        <span class="cb-beneficios__icon"><img src="group.svg" width="30" height="30" alt="" /></span>
+        <p>Acompañamiento técnico desde la integración<br />hasta la operación.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+.cb-beneficios {
+  --cb-primary-10: #ebfffe;
+  --cb-primary-50: #00afaa;
+  --cb-text: #1d1d1d;
+  --cb-font-regular: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 0 80px 125px;
+  background: #fff;
+  color: var(--cb-text);
+  -webkit-font-smoothing: antialiased;
+}
+.cb-beneficios *, .cb-beneficios *::before, .cb-beneficios *::after { box-sizing: border-box; }
+.cb-beneficios h2, .cb-beneficios p, .cb-beneficios ul { margin: 0; padding: 0; }
+.cb-beneficios ul { list-style: none; }
+.cb-beneficios img { display: block; }
+
+.cb-beneficios__inner { display: flex; align-items: center; gap: 37px; width: 1038px; }
+.cb-beneficios__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 502px; }
+.cb-beneficios__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 30px;
+  padding: 4px 16px;
+  background: var(--cb-primary-10);
+  border-radius: 24px;
+  font: 400 16px/20px var(--cb-font-medium);
+  color: var(--cb-primary-50);
+  white-space: nowrap;
+}
+.cb-beneficios__title { font: 400 48px/normal var(--cb-font-medium); color: #000; }
+.cb-beneficios__text { width: 477px; font: 400 16px/24px var(--cb-font-regular); }
+
+.cb-beneficios__scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  width: 458px;
+  height: 352px;
+  padding: 56px 0;
+  overflow-x: clip;
+  overflow-y: auto;
+  /* Al llegar al tope o al final de la lista, el scroll continúa en la página
+     (no atrapa al usuario): el flujo sigue bajando por la web. */
+  overscroll-behavior-y: auto;
+  /* Oculta la barra de scroll lateral manteniendo el desplazamiento activo. */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge antiguo */
+}
+.cb-beneficios__scroll::-webkit-scrollbar { width: 0; height: 0; display: none; } /* Chrome / Safari / Edge */
+.cb-beneficios__scroll:focus-visible { outline: 3px solid var(--cb-primary-50); outline-offset: 2px; }
+.cb-beneficios__item { position: relative; flex-shrink: 0; display: flex; align-items: center; height: 184.404px; padding: 0 24px; }
+/* Marco verde + panel blanco translúcido (Rectangle 4383 / 4384) */
+.cb-beneficios__item::before {
+  content: "";
+  position: absolute;
+  left: 47.81px;
+  top: 0;
+  width: 397.56px;
+  height: 184.404px;
+  background: rgba(0, 175, 170, .2);
+  border-radius: 32px;
+}
+.cb-beneficios__item::after {
+  content: "";
+  position: absolute;
+  left: 62px;
+  top: 15px;
+  width: 371px;
+  height: 153px;
+  background: rgba(255, 255, 255, .6);
+  border-radius: 22px;
+}
+.cb-beneficios__icon {
+  position: absolute;
+  z-index: 1;
+  left: 26px;
+  top: 64.44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55.52px;
+  height: 55.52px;
+  background: #fff;
+  border-radius: 10.182px;
+  filter: drop-shadow(0 7.636px 10.182px rgba(0, 0, 0, .25));
+}
+.cb-beneficios__item p {
+  position: relative;
+  z-index: 1;
+  width: 316.263px;
+  margin-left: 80px;
+  font: 400 24px/normal var(--cb-font-regular);
+}
+</style>
