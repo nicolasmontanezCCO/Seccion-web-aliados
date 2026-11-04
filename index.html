@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aliados CCO | Credibanco</title>
   <style>body { margin: 0; background: #fff; } html { scroll-behavior: smooth; }</style>
+  <!-- Maze: snippet universal de rastreo (una sola vez en toda la pagina) -->
+  <script>
+  (function (m, a, z, e) {
+    var s, t, u, v;
+    try {
+      t = m.sessionStorage.getItem('maze-us');
+    } catch (err) {}
+    if (!t) {
+      t = new Date().getTime();
+      try {
+        m.sessionStorage.setItem('maze-us', t);
+      } catch (err) {}
+    }
+    u = document.currentScript || (function () {
+      var w = document.getElementsByTagName('script');
+      return w[w.length - 1];
+    })();
+    v = u && u.nonce;
+    s = a.createElement('script');
+    s.src = z + '?apiKey=' + e;
+    s.async = true;
+    if (v) s.setAttribute('nonce', v);
+    a.getElementsByTagName('head')[0].appendChild(s);
+    m.mazeUniversalSnippetApiKey = e;
+  })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '0933f455-4ecd-428e-88ad-b118ac253828');
+  </script>
 </head>
 <body>
 <!-- ARCHIVO GENERADO por armar-index.ps1. No editar aqui: edita los archivos de /modulos y vuelve a ejecutar el script. -->
@@ -1704,5 +1730,64 @@
   color: var(--cb-text);
 }
 </style>
+
+<!-- ======== Navegacion por hash (Maze) ======== -->
+<script>
+(function () {
+  'use strict';
+  // Orden y slug de cada seccion (coincide con los modulos).
+  var MAPA = [
+    { sel: '.cb-menu',       slug: 'menu' },
+    { sel: '.cb-hero',       slug: 'inicio' },
+    { sel: '.cb-breadcrumb', slug: 'ubicacion' },
+    { sel: '.cb-aliados',    slug: 'tipos-aliado' },
+    { sel: '.cb-vincularte', slug: 'vincularte' },
+    { sel: '.cb-beneficios', slug: 'beneficios' },
+    { sel: '.cb-resultados', slug: 'resultados' },
+    { sel: '.cb-faq',        slug: 'faq' },
+    { sel: '.cb-entidades',  slug: 'entidades' },
+    { sel: '.cb-contacto',   slug: 'contacto' },
+    { sel: '.cb-footer',     slug: 'footer' }
+  ];
+  var secciones = [];
+  MAPA.forEach(function (m) {
+    var el = document.querySelector(m.sel);
+    if (el) { el.id = el.id || m.slug; secciones.push({ el: el, slug: m.slug }); }
+  });
+  if (!secciones.length) return;
+
+  var slugActual = null;
+  function fijarSlug(slug) {
+    if (slug === slugActual) return;
+    slugActual = slug;
+    // Cambia el slug de la URL sin recargar: Maze lo lee como nueva pantalla.
+    try { history.replaceState(null, '', '#' + slug); } catch (err) { location.hash = slug; }
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+  }
+
+  if ('IntersectionObserver' in window) {
+    var visibles = {};
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        visibles[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0;
+      });
+      // Elige la seccion con mayor visibilidad en pantalla.
+      var mejor = null, max = 0;
+      secciones.forEach(function (s) {
+        var r = visibles[s.el.id] || 0;
+        if (r > max) { max = r; mejor = s.slug; }
+      });
+      if (mejor) fijarSlug(mejor);
+    }, { threshold: [0.1, 0.25, 0.5, 0.75] });
+    secciones.forEach(function (s) { obs.observe(s.el); });
+  }
+
+  // Si entras con un hash, lleva el foco/scroll a esa seccion.
+  if (location.hash) {
+    var destino = document.getElementById(location.hash.slice(1));
+    if (destino) destino.scrollIntoView();
+  }
+})();
+</script>
 </body>
 </html>
