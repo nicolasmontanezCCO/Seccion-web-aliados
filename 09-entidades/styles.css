@@ -1,0 +1,44 @@
+/* =====================================================================
+   SECCIÓN 09 · Entidades que ya confían en nosotros · Credibanco
+   USO EN AVADA: pegar en Avada > Options > Custom CSS
+   ===================================================================== */
+.cb-entidades {
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1280px;
+  height: 353px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-entidades__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding-top: 92px;
+  font: 400 40px/48px var(--cb-font-medium);
+  color: #1d1d1d;
+  text-align: center;
+}
+.cb-entidades__logos {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  display: block;
+  width: 1280px;
+  max-width: none;
+  height: 359px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .cb-entidades { height: auto; overflow: visible; padding-bottom: 32px; }
+  .cb-entidades__title { font-size: clamp(22px,4vw,40px); padding-top: clamp(32px,5vw,60px); }
+  .cb-entidades__logos { position: static; width: 100%; height: auto; max-width: 100%; display: block; }
+}
+@media (max-width: 480px) {
+  .cb-entidades__title { font-size: clamp(18px,5.5vw,28px); padding: 24px 16px 0; }
+}

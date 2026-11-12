@@ -1,0 +1,87 @@
+/* =====================================================================
+   SECCIÓN 06 · Beneficios de ser Aliado · Credibanco
+   USO EN AVADA: pegar en Avada > Options > Custom CSS
+   ===================================================================== */
+.cb-beneficios {
+  --cb-primary-10: #ebfffe;
+  --cb-primary-50: #00afaa;
+  --cb-text: #1d1d1d;
+  --cb-font-regular: "Gilroy-Regular","Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cb-font-medium:  "Gilroy-Medium", "Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 0 80px 125px;
+  background: #fff;
+  color: var(--cb-text);
+  -webkit-font-smoothing: antialiased;
+}
+.cb-beneficios *, .cb-beneficios *::before, .cb-beneficios *::after { box-sizing: border-box; }
+.cb-beneficios h2, .cb-beneficios p, .cb-beneficios ul { margin: 0; padding: 0; }
+.cb-beneficios ul { list-style: none; }
+.cb-beneficios img { display: block; }
+
+.cb-beneficios__inner { display:flex; align-items:center; gap:37px; width:1038px; max-width:100%; }
+.cb-beneficios__copy  { display:flex; flex-direction:column; align-items:flex-start; gap:24px; width:502px; }
+.cb-beneficios__badge {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:180px; height:30px; padding:4px 16px;
+  background:var(--cb-primary-10); border-radius:24px;
+  font:400 16px/20px var(--cb-font-medium); color:var(--cb-primary-50); white-space:nowrap;
+}
+.cb-beneficios__title { font:400 48px/normal var(--cb-font-medium); color:#000; }
+.cb-beneficios__text  { width:477px; font:400 16px/24px var(--cb-font-regular); }
+
+.cb-beneficios__scroll {
+  display:flex; flex-direction:column; gap:56px;
+  width:458px; height:352px; padding:56px 0;
+  overflow-x:clip; overflow-y:auto;
+  overscroll-behavior-y:auto;
+  scrollbar-width:none; -ms-overflow-style:none;
+}
+.cb-beneficios__scroll::-webkit-scrollbar { width:0; height:0; display:none; }
+.cb-beneficios__scroll:focus-visible { outline:3px solid var(--cb-primary-50); outline-offset:2px; }
+.cb-beneficios__item { position:relative; flex-shrink:0; display:flex; align-items:center; height:184.404px; padding:0 24px; }
+.cb-beneficios__item::before {
+  content:""; position:absolute; left:47.81px; top:0;
+  width:397.56px; height:184.404px;
+  background:rgba(0,175,170,.2); border-radius:32px;
+}
+.cb-beneficios__item::after {
+  content:""; position:absolute; left:62px; top:15px;
+  width:371px; height:153px;
+  background:rgba(255,255,255,.6); border-radius:22px;
+}
+.cb-beneficios__icon {
+  position:absolute; z-index:1; left:26px; top:64.44px;
+  display:flex; align-items:center; justify-content:center;
+  width:55.52px; height:55.52px;
+  background:#fff; border-radius:10.182px;
+  filter:drop-shadow(0 7.636px 10.182px rgba(0,0,0,.25));
+}
+.cb-beneficios__item p {
+  position:relative; z-index:1;
+  width:316.263px; margin-left:80px;
+  font:400 24px/normal var(--cb-font-regular);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .cb-beneficios { padding: clamp(40px,6vw,80px) clamp(24px,6vw,80px); }
+  .cb-beneficios__inner { flex-direction:column; gap:40px; }
+  .cb-beneficios__copy  { width:100%; }
+  .cb-beneficios__title { font-size: clamp(28px,5vw,48px); }
+  .cb-beneficios__text  { width:100%; }
+  .cb-beneficios__scroll { width:100%; height:auto; overflow:visible; padding:0; gap:24px; }
+  .cb-beneficios__item { height:auto; min-height:120px; padding:70px 24px 24px; }
+  .cb-beneficios__item::before { left:0; top:0; width:100%; height:100%; }
+  .cb-beneficios__item::after  { left:10px; top:10px; width:calc(100% - 20px); height:calc(100% - 20px); }
+  .cb-beneficios__icon { top:16px; left:50%; transform:translateX(-50%); }
+  .cb-beneficios__item p { width:100%; margin-left:0; font-size:clamp(16px,2.5vw,22px); text-align:center; }
+}
+@media (max-width: 480px) {
+  .cb-beneficios { padding: 32px 16px; }
+  .cb-beneficios__title { font-size: clamp(24px,6vw,36px); }
+  .cb-beneficios__item p { font-size: clamp(14px,4vw,18px); }
+}

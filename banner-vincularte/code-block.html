@@ -1,0 +1,106 @@
+<!-- =====================================================================
+     BANNER · ¿Cómo puedes vincularte? · Credibanco
+     -----------------------------------------------------------------------
+     CÓMO USAR EN AVADA (copiar y pegar):
+     1. En Avada Builder agrega un elemento "Code Block" en la fila/columna
+        donde quieras este banner.
+     2. Pega TODO este bloque dentro del Code Block.
+     3. Sube las dos imágenes de esta carpeta a Medios → WordPress:
+           vincularte-1.png  →  fondo del banner oscuro
+           vincularte-2.png  →  foto del panel "Proceso de vinculación"
+     4. Reemplaza las dos URLs marcadas con «← REEMPLAZAR» por las URLs
+        que WordPress te asigna al subir cada imagen.
+     5. Los estilos deben estar en Avada > Options > Custom CSS
+        (o en el Custom CSS de esta página): usa el archivo styles.css
+        de esta misma carpeta.
+
+     Diferencia con 05-vincularte:
+     · En móvil/tablet este banner oculta el estado hover y solo muestra
+       el banner oscuro con el título (uso como cabecera de sección).
+     ===================================================================== -->
+
+<section class="cb-banner-vincularte" aria-labelledby="cb-bv-title" tabindex="0">
+
+  <!-- Estado predeterminado: banner oscuro con el título -->
+  <div class="cb-bv__default">
+
+    <div class="cb-bv__layer cb-bv__layer--1">
+      <img src="https://tu-dominio.com/wp-content/uploads/vincularte-1.png"
+           alt=""
+           loading="lazy" />
+      <!-- ↑ REEMPLAZAR la URL por la que WordPress asigne a vincularte-1.png -->
+    </div>
+
+    <div class="cb-bv__layer cb-bv__layer--2">
+      <img src="https://tu-dominio.com/wp-content/uploads/vincularte-2.png"
+           alt=""
+           loading="lazy" />
+      <!-- ↑ REEMPLAZAR la URL por la que WordPress asigne a vincularte-2.png -->
+    </div>
+
+    <h2 id="cb-bv-title" class="cb-bv__title">
+      ¿Cómo puedes<br />vincularte?
+    </h2>
+
+  </div><!-- /.cb-bv__default -->
+
+  <!-- Estado hover: proceso de vinculación (desktop ≥ 1025px) -->
+  <div class="cb-bv__hover" aria-hidden="true">
+    <div class="cb-bv__block">
+
+      <!-- Panel claro (fondo) -->
+      <div class="cb-bv__panel">
+        <div class="cb-bv__content">
+          <h3 class="cb-bv__heading">Proceso de vinculación</h3>
+
+          <!-- Paso 1 -->
+          <div class="cb-bv__step">
+            <div class="cb-bv__step-head">
+              <span class="cb-bv__badge cb-bv__badge--ring">1</span>
+              <span class="cb-bv__step-title">Registra tu empresa</span>
+            </div>
+            <p class="cb-bv__step-text">
+              Completa el formulario con los datos de tu organización, tu solución,
+              tus capacidades y tu interés en trabajar con Credibanco.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="cb-bv__step">
+            <div class="cb-bv__step-head">
+              <span class="cb-bv__badge">2</span>
+              <span class="cb-bv__step-title">Conversamos en una sesión</span>
+            </div>
+            <p class="cb-bv__step-text">
+              En una sesión de 60 minutos conocemos tu solución y tu base de clientes
+              para identificar qué puede aportarte nuestro ecosistema de pagos.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="cb-bv__step">
+            <div class="cb-bv__step-head">
+              <span class="cb-bv__badge">3</span>
+              <span class="cb-bv__step-title">Definimos la vinculación</span>
+            </div>
+            <p class="cb-bv__step-text">
+              Acordamos el modelo de trabajo, las responsabilidades y las condiciones
+              de la alianza.
+            </p>
+          </div>
+
+        </div>
+      </div><!-- /.cb-bv__panel -->
+
+      <!-- Foto encima del panel, a la izquierda -->
+      <div class="cb-bv__photo">
+        <img src="https://tu-dominio.com/wp-content/uploads/vincularte-2.png"
+             alt=""
+             loading="lazy" />
+        <!-- ↑ Misma URL que vincularte-2.png de arriba -->
+      </div>
+
+    </div><!-- /.cb-bv__block -->
+  </div><!-- /.cb-bv__hover -->
+
+</section>

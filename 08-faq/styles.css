@@ -1,0 +1,78 @@
+/* =====================================================================
+   SECCIÓN 08 · Preguntas frecuentes · Credibanco
+   USO EN AVADA: pegar en Avada > Options > Custom CSS
+   ===================================================================== */
+.cb-faq {
+  --cb-primary-10: #ebfffe;
+  --cb-primary-50: #00afaa;
+  --cb-text-secondary: #5b5c5c;
+  --cb-neutral: #cbcccc;
+  --cb-font-regular: "Gilroy-Regular","Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cb-font-bold:    "Gilroy-Bold",   "Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  max-width: 1280px;
+  height: 878px;
+  margin: 0 auto;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-faq *, .cb-faq *::before, .cb-faq *::after { box-sizing: border-box; }
+.cb-faq h2, .cb-faq h3, .cb-faq p { margin: 0; }
+.cb-faq img { display: block; }
+.cb-faq :focus-visible { outline: 3px solid var(--cb-primary-50); outline-offset: 2px; }
+
+.cb-faq__aside { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; width:427px; height:780px; padding:16px; }
+.cb-faq__heading { display:flex; flex-direction:column; gap:11px; padding:33px 90px; white-space:nowrap; color:#000; }
+.cb-faq__title   { font:400 32px/40px var(--cb-font-bold); }
+.cb-faq__subtitle{ font:400 16px/24px var(--cb-font-regular); letter-spacing:.16px; }
+.cb-faq__img { position:relative; width:333px; height:341px; overflow:hidden; border-radius:36px 32px 32px 37px; }
+.cb-faq__img img { position:absolute; top:0; left:-41.48%; width:194.43%; max-width:none; height:100%; object-fit:cover; }
+.cb-faq__img::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,.2); }
+
+.cb-faq__main { display:flex; flex-direction:column; gap:10px; padding:161px 36px; }
+.cb-faq__tabs { display:flex; width:631px; }
+.cb-faq__tab {
+  flex:1; height:40px; padding:8px 16px;
+  background:#fff; border:0; border-bottom:1.5px solid var(--cb-neutral);
+  font:400 16px/24px var(--cb-font-regular); letter-spacing:.16px;
+  color:var(--cb-text-secondary); cursor:pointer;
+}
+.cb-faq__tab.is-active { border-bottom:3px solid var(--cb-primary-50); font-family:var(--cb-font-bold); letter-spacing:0; color:var(--cb-primary-50); }
+
+.cb-faq__accordion { display:flex; flex-direction:column; gap:11px; width:631px; }
+.cb-faq__item { min-width:100px; background:#fff; border-radius:8px; filter:drop-shadow(0 4px 8px rgba(0,0,0,.15)); }
+.cb-faq__item.is-open { background:var(--cb-primary-10); filter:drop-shadow(0 4px 8px rgba(0,0,0,.25)); }
+.cb-faq__trigger {
+  display:flex; align-items:center; justify-content:space-between;
+  width:100%; padding:16px; background:transparent; border:0;
+  font:400 16px/24px var(--cb-font-bold); color:#000; text-align:left; cursor:pointer;
+}
+.cb-faq__trigger img { flex-shrink:0; transition:transform .2s ease; }
+.cb-faq__trigger[aria-expanded="true"] img { transform:rotate(180deg); }
+.cb-faq__panel { padding:0 16px 16px; }
+.cb-faq__panel p { font:400 12px/16px "Century Gothic",var(--cb-font-regular); color:#000; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .cb-faq { height:auto; flex-direction:column; }
+  .cb-faq__aside { width:100%; height:auto; flex-direction:row; flex-wrap:wrap; padding:clamp(24px,4vw,40px); gap:24px; align-items:flex-start; justify-content:flex-start; }
+  .cb-faq__heading { padding:0; white-space:normal; }
+  .cb-faq__img { width:100%; max-width:300px; height:200px; }
+  .cb-faq__main { padding:clamp(24px,4vw,40px); }
+  .cb-faq__tabs { width:100%; }
+  .cb-faq__accordion { width:100%; }
+  .cb-faq__title { font-size: clamp(22px,4vw,32px); }
+}
+@media (max-width: 600px) {
+  .cb-faq__tabs { flex-wrap:wrap; }
+  .cb-faq__tab { flex:1 1 50%; text-align:left; font-size:14px; }
+  .cb-faq__trigger { font-size:14px; }
+}
+@media (max-width: 480px) {
+  .cb-faq__aside { padding:24px 16px; }
+  .cb-faq__main  { padding:24px 16px; }
+  .cb-faq__img   { max-width:100%; }
+}

@@ -1,0 +1,405 @@
+/* =====================================================================
+   SECCIÓN 05 · ¿Cómo puedes vincularte? · Credibanco
+   -----------------------------------------------------------------------
+   USO EN AVADA
+   1. Ve a Avada > Options > Custom CSS (o al Custom CSS de la página).
+   2. Pega TODO este archivo ahí.
+   3. El HTML va en un elemento "Code Block" de Avada Builder
+      (archivo: code-block.html en esta misma carpeta).
+   4. Sube las imágenes a Medios de WordPress y reemplaza las URLs
+      marcadas con «← REEMPLAZAR» en code-block.html.
+
+   BREAKPOINTS
+   ≥ 1280px   Desktop grande  — hover animado, layout de dos columnas
+   1025–1279  Desktop pequeño — hover animado, layout fluido (clamp)
+   769–1024   Tablet          — sin hover, dos bloques apilados visibles
+   481–768    Móvil grande    — ajustes de fuente y padding
+   ≤ 480      Móvil pequeño   — máxima compresión
+   ===================================================================== */
+
+/* ===================================================================
+   BASE · Variables + reset
+   =================================================================== */
+.cb-vincularte {
+  --cb-font-medium:  "Gilroy-Medium",  "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-bold:    "Gilroy-Bold",    "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-regular: "Gilroy-Regular", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-tertiary:    #067875;
+  --cb-primary-10:  #ebfffe;
+  --cb-primary-50:  #00afaa;
+  --cb-text:        #1d1d1d;
+
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  height: 642px;
+  margin: 0 auto;
+  overflow: hidden;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cb-vincularte *,
+.cb-vincularte *::before,
+.cb-vincularte *::after { box-sizing: border-box; }
+
+/* Reset frente a estilos globales de Avada */
+.cb-vincularte h2,
+.cb-vincularte h3,
+.cb-vincularte p {
+  margin: 0;
+  padding: 0;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.cb-vincularte img {
+  display: block;
+  max-width: none;   /* Avada fuerza max-width:100% en todas las img */
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+/* ===================================================================
+   DESKTOP ≥ 1025px · dos estados con transición hover
+   =================================================================== */
+
+/* Capas de estado ocupan todo el frame y se funden entre sí */
+.cb-vincularte .cb-vincularte__default,
+.cb-vincularte .cb-vincularte__hover {
+  position: absolute;
+  inset: 0;
+  transition: opacity .35s cubic-bezier(.4, 0, .2, 1),
+              transform .45s cubic-bezier(.4, 0, .2, 1);
+  will-change: opacity, transform;
+}
+
+/* ----- Estado predeterminado: banner oscuro ----- */
+.cb-vincularte .cb-vincularte__default {
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Las capas de imagen llenan el contenedor sin píxeles fijos */
+.cb-vincularte .cb-vincularte__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 110%; /* ligero overscan para simular el offset original */
+}
+.cb-vincularte .cb-vincularte__layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.cb-vincularte .cb-vincularte__layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.cb-vincularte .cb-vincularte__layer--1 { top: -4%; }
+.cb-vincularte .cb-vincularte__layer--1::after { background: rgba(0, 0, 0, .31); }
+.cb-vincularte .cb-vincularte__layer--2 { top: -8%; }
+.cb-vincularte .cb-vincularte__layer--2::after { background: rgba(0, 0, 0, .70); }
+
+.cb-vincularte .cb-vincularte__title {
+  position: relative;
+  /* Margen y ancho fluidos: arranca en 122px pero se reduce en pantallas menores */
+  width: min(773px, 65%);
+  margin: 0 0 0 clamp(32px, 9.5vw, 122px);
+  font: 400 clamp(40px, 5vw, 64px) / 1.125 var(--cb-font-medium);
+  color: #fff;
+}
+
+/* ----- Estado hover: proceso de vinculación ----- */
+.cb-vincularte .cb-vincularte__hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  /* Padding interior para que el bloque no toque los bordes en pantallas
+     intermedias (1025–1279px) */
+  padding: 0 clamp(16px, 3vw, 48px);
+}
+
+/* El bloque foto + panel: fluido entre 600px y 983px */
+.cb-vincularte .cb-vincularte__block {
+  position: relative;
+  width: min(983px, 100%);
+  /* La altura se calcula a partir de la proporción 529/983 ≈ 53.8% */
+  height: 0;
+  padding-bottom: min(529px, 53.8%);
+}
+
+/* Foto a la izquierda */
+.cb-vincularte .cb-vincularte__photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  /* 441/983 ≈ 44.86% del bloque */
+  width: 44.86%;
+  height: 100%;
+  border-radius: clamp(16px, 3vw, 40px);
+  overflow: hidden;
+}
+.cb-vincularte .cb-vincularte__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .2);
+  border-radius: inherit;
+}
+.cb-vincularte .cb-vincularte__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Panel claro a la derecha */
+.cb-vincularte .cb-vincularte__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  /* 629/983 ≈ 63.99% del bloque */
+  width: 63.99%;
+  height: 100%;
+  background: var(--cb-primary-10);
+  border-radius: clamp(16px, 3vw, 40px);
+}
+
+/* Contenido del panel: margen izquierdo fluido para dejar espacio a la foto */
+.cb-vincularte .cb-vincularte__content {
+  position: absolute;
+  top: 50%;
+  /* 169px sobre 629px ≈ 26.9% del panel */
+  left: 26.9%;
+  /* 373px sobre 629px ≈ 59.3% del panel */
+  width: 59.3%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.5vw, 24px);
+  transform: translateY(-50%);
+}
+
+.cb-vincularte .cb-vincularte__heading {
+  font: 400 clamp(20px, 2.5vw, 32px) / 1.25 var(--cb-font-medium);
+  color: var(--cb-tertiary);
+  text-shadow: 0 6px 10px rgba(67, 67, 67, .10);
+}
+.cb-vincularte .cb-vincularte__step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cb-vincularte .cb-vincularte__step-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cb-vincularte .cb-vincularte__badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(24px, 2.5vw, 32px);
+  height: clamp(24px, 2.5vw, 32px);
+  border-radius: 8px;
+  background: var(--cb-tertiary);
+  font: 400 clamp(16px, 1.8vw, 24px) / 1 var(--cb-font-bold);
+  color: #fff;
+}
+/* Paso 1: anillo/círculo claro bajo el badge */
+.cb-vincularte .cb-vincularte__badge--ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--cb-primary-50);
+}
+.cb-vincularte .cb-vincularte__step-title {
+  font: 400 clamp(13px, 1.5vw, 20px) / 1.2 var(--cb-font-medium);
+  color: var(--cb-text);
+}
+.cb-vincularte .cb-vincularte__step-text {
+  font: 400 clamp(12px, 1.2vw, 16px) / 1.5 var(--cb-font-regular);
+  color: var(--cb-text);
+}
+
+/* ----- Disparador del hover / focus ----- */
+.cb-vincularte:hover .cb-vincularte__default,
+.cb-vincularte:focus-within .cb-vincularte__default {
+  opacity: 0;
+  transform: scale(.98);
+}
+.cb-vincularte:hover .cb-vincularte__hover,
+.cb-vincularte:focus-within .cb-vincularte__hover {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-vincularte .cb-vincularte__default,
+  .cb-vincularte .cb-vincularte__hover {
+    transition: opacity .2s ease;
+    transform: none !important;
+  }
+}
+
+/* ===================================================================
+   TABLET ≤ 1024px · sin hover, dos bloques apilados siempre visibles
+   =================================================================== */
+@media (max-width: 1024px) {
+  .cb-vincularte {
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Ambas capas pasan a flujo normal (no absolutas) */
+  .cb-vincularte .cb-vincularte__default,
+  .cb-vincularte .cb-vincularte__hover {
+    position: static;
+    inset: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+    pointer-events: auto;
+  }
+
+  /* ---- Banner oscuro ---- */
+  .cb-vincularte .cb-vincularte__default {
+    position: relative;        /* necesario para las capas absolutas */
+    min-height: 260px;
+    padding: clamp(40px, 8vw, 72px) clamp(20px, 6vw, 48px);
+    overflow: hidden;
+  }
+  /* Las capas vuelven a ser absolutas dentro del default */
+  .cb-vincularte .cb-vincularte__layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .cb-vincularte .cb-vincularte__layer--1 { top: 0; }
+  .cb-vincularte .cb-vincularte__layer--2 { top: 0; }
+
+  .cb-vincularte .cb-vincularte__title {
+    position: relative;   /* por encima de las capas */
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    margin: 0;
+    font-size: clamp(32px, 5.5vw, 48px);
+    line-height: 1.1;
+  }
+
+  /* ---- Proceso de vinculación ---- */
+  .cb-vincularte .cb-vincularte__hover {
+    display: block;
+    padding: clamp(32px, 6vw, 64px) clamp(20px, 6vw, 48px);
+    background: #fff;
+  }
+  .cb-vincularte .cb-vincularte__block {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-bottom: 0;
+  }
+  .cb-vincularte .cb-vincularte__photo { display: none; }
+  .cb-vincularte .cb-vincularte__panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    border-radius: 0;
+  }
+  .cb-vincularte .cb-vincularte__content {
+    position: static;
+    left: auto;
+    width: 100%;
+    transform: none;
+    gap: 24px;
+  }
+  .cb-vincularte .cb-vincularte__heading {
+    font-size: clamp(24px, 4vw, 38px);
+    color: #1d1d1d;
+    text-shadow: none;
+  }
+  .cb-vincularte .cb-vincularte__step {
+    background: #f6f9fc;
+    border-radius: 16px;
+    padding: clamp(16px, 3vw, 24px);
+    gap: 14px;
+  }
+  .cb-vincularte .cb-vincularte__badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #00afaa;
+    font-size: 18px;
+  }
+  .cb-vincularte .cb-vincularte__badge--ring::before { display: none; }
+  .cb-vincularte .cb-vincularte__step-title { font-size: clamp(14px, 2vw, 18px); }
+  .cb-vincularte .cb-vincularte__step-text  { font-size: clamp(13px, 1.6vw, 15px); }
+}
+
+/* ===================================================================
+   TABLET PEQUEÑA 481–768px
+   =================================================================== */
+@media (max-width: 768px) {
+  .cb-vincularte .cb-vincularte__default {
+    min-height: 220px;
+  }
+  .cb-vincularte .cb-vincularte__title {
+    font-size: clamp(28px, 6.5vw, 40px);
+  }
+  .cb-vincularte .cb-vincularte__heading {
+    font-size: clamp(22px, 5vw, 32px);
+  }
+}
+
+/* ===================================================================
+   MÓVIL ≤ 480px
+   =================================================================== */
+@media (max-width: 480px) {
+  .cb-vincularte .cb-vincularte__default {
+    min-height: 180px;
+    padding: 40px 16px;
+  }
+  .cb-vincularte .cb-vincularte__title {
+    font-size: clamp(24px, 7.5vw, 34px);
+    line-height: 1.15;
+  }
+  .cb-vincularte .cb-vincularte__hover {
+    padding: 32px 16px;
+  }
+  .cb-vincularte .cb-vincularte__heading {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+  .cb-vincularte .cb-vincularte__step {
+    border-radius: 12px;
+    padding: 14px;
+    gap: 10px;
+  }
+  .cb-vincularte .cb-vincularte__badge {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  .cb-vincularte .cb-vincularte__step-title { font-size: 14px; }
+  .cb-vincularte .cb-vincularte__step-text  { font-size: 13px; line-height: 1.45; }
+}

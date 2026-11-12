@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>08 · FAQ · Credibanco</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f4f4f4; font-family: system-ui, sans-serif; }
+    .preview-info { padding: clamp(10px,2vw,16px) clamp(16px,4vw,24px); background: #fff3cd; border-bottom: 2px solid #ffc107; font-size: clamp(12px,1.5vw,14px); color: #333; line-height: 1.5; }
+    .preview-info a { color: #067875; }
+  </style>
+</head>
+<body>
+<div class="preview-info">
+  <strong>Vista previa local · 08 FAQ</strong> — Para Avada: <code>code-block.html</code> + <code>styles.css</code> + <code>script.js</code>. <a href="../index.html">← Índice</a>
+</div>
+<section class="cb-faq" aria-labelledby="cb-faq-title">
+  <div class="cb-faq__aside">
+    <div class="cb-faq__heading">
+      <h2 id="cb-faq-title" class="cb-faq__title">Preguntas frecuentes</h2>
+      <p class="cb-faq__subtitle">Soluciona tus dudas</p>
+    </div>
+    <div class="cb-faq__img"><img src="faq.png" alt="" /></div>
+  </div>
+  <div class="cb-faq__main">
+    <div class="cb-faq__tabs" role="tablist" aria-label="Categorías de preguntas">
+      <button type="button" class="cb-faq__tab is-active" role="tab" aria-selected="true">Generales</button>
+      <button type="button" class="cb-faq__tab" role="tab" aria-selected="false">Aliado Comercial</button>
+      <button type="button" class="cb-faq__tab" role="tab" aria-selected="false">Aliado Tecnológico</button>
+      <button type="button" class="cb-faq__tab" role="tab" aria-selected="false">Aliado soluciones</button>
+    </div>
+    <div class="cb-faq__accordion" role="tabpanel">
+      <div class="cb-faq__item is-open">
+        <h3><button type="button" class="cb-faq__trigger" aria-expanded="true">¿Qué es el Programa de Aliados de Credibanco?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3>
+        <div class="cb-faq__panel" role="region">
+          <p>Un modelo de relación donde ambas partes generan valor mutuo: tú amplías tu oferta y tus ingresos, y nosotros llevamos nuestro ecosistema de pagos a nuevos mercados.</p>
+        </div>
+      </div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué tipos de aliado existen?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Puedo pertenecer a más de un tipo?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué requisitos mínimos debo cumplir?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué puede dejarme fuera del programa?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Cómo es el proceso de vinculación?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+      <div class="cb-faq__item"><h3><button type="button" class="cb-faq__trigger" aria-expanded="false">¿Qué aporta Credibanco?<img src="chevron-down.svg" width="24" height="24" alt="" /></button></h3></div>
+    </div>
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>

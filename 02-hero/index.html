@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>02 · Hero · Credibanco</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f4f4f4; font-family: system-ui, sans-serif; }
+    .preview-info {
+      padding: clamp(10px,2vw,16px) clamp(16px,4vw,24px);
+      background: #fff3cd; border-bottom: 2px solid #ffc107;
+      font-size: clamp(12px,1.5vw,14px); color: #333; line-height: 1.5;
+    }
+    .preview-info a { color: #067875; }
+  </style>
+</head>
+<body>
+<div class="preview-info">
+  <strong>Vista previa local · 02 Hero</strong> —
+  Para Avada: usa <code>code-block.html</code> + <code>styles.css</code>.
+  <a href="../index.html">← Índice</a>
+</div>
+<section class="cb-hero" aria-labelledby="cb-hero-title">
+  <img class="cb-hero__bg" src="hero-bg.png" alt="" />
+  <div class="cb-hero__content">
+    <span class="cb-hero__badge">Programa de Aliados Estratégicos</span>
+    <h1 id="cb-hero-title" class="cb-hero__title">Conviértete en Aliado de CCO<br />y creemos nuevas oportunidades juntos</h1>
+    <p class="cb-hero__text">Amplía tu oferta comercial, integra tu tecnología o combina tu solución con nuestras capacidades para generar valor para más comercios.</p>
+    <div class="cb-hero__actions">
+      <a class="cb-hero__btn cb-hero__btn--primary" href="#contacto">Quiero ser aliado</a>
+      <a class="cb-hero__btn cb-hero__btn--outline" href="#tipos-aliado">Conoce los tipos de aliados</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

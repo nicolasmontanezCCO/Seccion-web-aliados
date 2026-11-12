@@ -1,0 +1,84 @@
+/* =====================================================================
+   SECCIÓN 01 · Menú superior · Credibanco
+   USO EN AVADA: pegar en Avada > Options > Custom CSS
+   ===================================================================== */
+.cb-menu {
+  --cb-primary-50: #00afaa;
+  --cb-brand-primary: #ffb600;
+  --cb-tertiary: #124734;
+  --cb-text: #1d1d1d;
+  --cb-font-medium: "Gilroy-Medium", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cb-font-bold: "Gilroy-Bold", "Gilroy", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  max-width: 1280px;
+  height: 118px;
+  margin: 0 auto;
+  padding: 7.269px 125px;
+  background: #fff;
+  border: 1px solid #fff;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, .1));
+  -webkit-font-smoothing: antialiased;
+}
+.cb-menu *, .cb-menu *::before, .cb-menu *::after { box-sizing: border-box; }
+.cb-menu ul { margin: 0; padding: 0; list-style: none; }
+.cb-menu img { display: block; }
+.cb-menu a:focus-visible { outline: 3px solid var(--cb-primary-50); outline-offset: 2px; }
+
+.cb-menu__util { display: flex; gap: 9px; }
+.cb-menu__util-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 8px;
+  font: 400 14.538px/21.806px var(--cb-font-bold);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: filter .15s ease;
+}
+.cb-menu__util-btn:hover { filter: brightness(.94); }
+.cb-menu__util-btn--hub   { background: var(--cb-primary-50); color: #fff; }
+.cb-menu__util-btn--ayuda { background: var(--cb-brand-primary); color: var(--cb-text); }
+.cb-menu__util-btn--dev   { background: var(--cb-tertiary); color: #fff; }
+
+.cb-menu__bar { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.cb-menu__logo img { width: 181.719px; height: 46.996px; }
+.cb-menu__nav { display: flex; align-items: center; justify-content: center; width: 678px; height: 60px; padding: 8px 0; }
+.cb-menu__nav ul { display: flex; align-items: center; gap: 10.903px; }
+.cb-menu__nav a {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 7.269px 14.538px;
+  border-radius: 21.806px;
+  font: 400 14.54px/21.806px var(--cb-font-medium);
+  color: #000;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .15s ease;
+}
+.cb-menu__nav a:hover { background: #ebfffe; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .cb-menu {
+    height: auto;
+    padding: clamp(8px, 2vw, 16px) clamp(16px, 4vw, 48px);
+    align-items: flex-start;
+  }
+  .cb-menu__bar { flex-wrap: wrap; gap: 12px; }
+  .cb-menu__nav { width: 100%; height: auto; justify-content: flex-start; }
+  .cb-menu__nav ul { flex-wrap: wrap; gap: 4px; }
+}
+@media (max-width: 600px) {
+  .cb-menu__util { flex-wrap: wrap; }
+  .cb-menu__nav { display: none; }
+}

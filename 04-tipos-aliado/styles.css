@@ -1,0 +1,126 @@
+/* =====================================================================
+   SECCIÓN 04 · ¿Qué tipo de Aliado quieres ser? · Credibanco
+   USO EN AVADA: pegar en Avada > Options > Custom CSS
+   ===================================================================== */
+.cb-aliados {
+  --cb-primary-10: #ebfffe;
+  --cb-primary-50: #00afaa;
+  --cb-brand-primary: #ffb600;
+  --cb-brand-primary-hover: #f5a300;
+  --cb-text: #1d1d1d;
+  --cb-tertiary: #067875;
+  --cb-error: #ef4444;
+  --cb-azul-2: #001a26;
+  --cb-surface-subtle: #fafafa;
+  --cb-font-regular: "Gilroy-Regular","Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cb-font-medium:  "Gilroy-Medium", "Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cb-font-bold:    "Gilroy-Bold",   "Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px;
+  background: #fff;
+  border-radius: 42px;
+  color: var(--cb-text);
+  -webkit-font-smoothing: antialiased;
+}
+.cb-aliados *, .cb-aliados *::before, .cb-aliados *::after { box-sizing: border-box; }
+.cb-aliados h2,.cb-aliados h3,.cb-aliados h4,.cb-aliados p,.cb-aliados ul { margin:0; padding:0; }
+.cb-aliados ul { list-style: none; }
+.cb-aliados img { display: block; }
+.cb-aliados [hidden] { display: none !important; }
+.cb-aliados :focus-visible { outline: 3px solid var(--cb-primary-50); outline-offset: 2px; }
+
+.cb-aliados__inner { display:flex; flex-direction:column; align-items:center; gap:48px; width:1152px; max-width:100%; }
+.cb-aliados__header { display:flex; flex-direction:column; gap:12px; width:100%; text-align:center; }
+.cb-aliados__title  { font: 400 40px/48px var(--cb-font-medium); }
+.cb-aliados__accent { color: var(--cb-tertiary); }
+.cb-aliados__lead   { font: 400 16px/24px var(--cb-font-regular); }
+.cb-aliados__h3     { font: 400 18px/24px var(--cb-font-bold); }
+.cb-aliados__caption{ font: 400 12px/16px var(--cb-font-regular); }
+.cb-aliados__error  { color: var(--cb-error); }
+
+/* Tarjetas */
+.cb-aliados__cards { display:flex; justify-content:center; gap:10px; width:1088px; max-width:100%; margin-top:-8px; }
+.cb-aliados__card {
+  position:relative; flex:0 0 357.333px; height:501px; padding:0;
+  overflow:hidden; background:#fff; border:2px solid transparent;
+  border-radius:16px; font:inherit; color:inherit; text-align:left;
+  cursor:pointer;
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.cb-aliados__card:hover { background:var(--cb-primary-10); border-color:var(--cb-primary-50); box-shadow:0 4px 16px rgba(0,0,0,.15); }
+.cb-aliados__card.is-selected { background:#fff; border-color:var(--cb-primary-50); box-shadow:0 4px 16px rgba(0,0,0,.15); }
+
+.cb-aliados__card-img { position:absolute; left:0; top:-5px; width:357px; height:309px; overflow:hidden; }
+.cb-aliados__photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; transition:opacity .2s ease; }
+.cb-aliados__photo--comercial   { object-position: center top; }
+.cb-aliados__photo--tecnologico { object-position: center center; }
+.cb-aliados__photo--soluciones  { object-position: center center; }
+.cb-aliados__photo--color { opacity: 0; }
+.cb-aliados__card:hover .cb-aliados__photo--color,
+.cb-aliados__card.is-selected .cb-aliados__photo--color { opacity: 1; }
+.cb-aliados__card:hover .cb-aliados__photo--gris,
+.cb-aliados__card.is-selected .cb-aliados__photo--gris { opacity: 0; }
+
+.cb-aliados__card-body { position:absolute; left:20px; top:339px; display:flex; flex-direction:column; gap:16px; width:313.333px; }
+.cb-aliados__card-title { font:400 20px/24px var(--cb-font-bold); color:#000; transition:color .2s ease; }
+.cb-aliados__card.is-selected .cb-aliados__card-title { color: var(--cb-tertiary); }
+.cb-aliados__card-text { font:400 16px/24px var(--cb-font-regular); letter-spacing:.16px; color:var(--cb-azul-2); }
+
+/* Panel detalle */
+.cb-aliados__detalle { display:flex; gap:24px; width:1082px; max-width:100%; }
+.cb-aliados__detalle.is-entering { animation: cb-aliados-fade .25s ease both; }
+@keyframes cb-aliados-fade { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+
+.cb-aliados__beneficios { display:flex; flex-direction:column; gap:16px; width:357px; height:524px; padding:24px 0; }
+.cb-aliados__beneficios-head { display:flex; flex-direction:column; gap:4px; white-space:nowrap; }
+.cb-aliados__beneficios-list { display:flex; flex:1; flex-direction:column; gap:12px; }
+.cb-aliados__beneficios-list li { display:flex; flex:1; align-items:center; gap:12px; padding:16px; background:var(--cb-surface-subtle); border-radius:16px; font:400 16px/24px var(--cb-font-regular); }
+.cb-aliados__beneficios-list img, .cb-aliados__portafolio-list img { flex-shrink: 0; }
+
+.cb-aliados__portafolio { display:flex; flex:1; flex-direction:column; gap:15px; height:508px; padding:24px 0; overflow:hidden; }
+.cb-aliados__portafolio-head { display:flex; flex-direction:column; gap:8px; }
+.cb-aliados__portafolio-img { width:100%; height:196px; object-fit:cover; border-radius:20px; }
+.cb-aliados__portafolio-card { display:flex; flex-direction:column; gap:12px; height:216px; padding:16px; background:var(--cb-surface-subtle); border-radius:16px; }
+.cb-aliados__portafolio-list { display:flex; flex-direction:column; gap:10px; }
+.cb-aliados__portafolio-list li { display:flex; align-items:center; gap:10px; font:400 16px/24px var(--cb-font-regular); }
+
+/* CTA */
+.cb-aliados__cta { display:flex; justify-content:center; width:100%; }
+.cb-aliados__btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  width:292px; height:40px; padding:8px 16px;
+  background:var(--cb-brand-primary); border-radius:24px;
+  font:400 16px/24px var(--cb-font-bold); color:#000; text-decoration:none;
+  transition: background-color .15s ease;
+}
+.cb-aliados__btn:hover { background: var(--cb-brand-primary-hover); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-aliados *, .cb-aliados *::before, .cb-aliados *::after { transition:none !important; animation:none !important; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1200px) {
+  .cb-aliados { padding: clamp(32px,5vw,64px); border-radius: 24px; }
+  .cb-aliados__cards { width:100%; flex-wrap:wrap; }
+  .cb-aliados__card { flex:1 1 calc(33% - 10px); min-width:240px; height:auto; min-height:420px; }
+  .cb-aliados__card-img { position:relative; left:auto; top:auto; width:100%; height:220px; }
+  .cb-aliados__card-body { position:static; width:100%; padding:16px; top:auto; left:auto; }
+  .cb-aliados__detalle { width:100%; flex-direction:column; }
+  .cb-aliados__beneficios { width:100%; height:auto; }
+  .cb-aliados__portafolio { height:auto; }
+  .cb-aliados__title { font-size: clamp(26px,4vw,40px); }
+}
+@media (max-width: 700px) {
+  .cb-aliados__cards { flex-direction:column; }
+  .cb-aliados__card { flex:none; width:100%; min-height:380px; }
+  .cb-aliados__card-img { height:200px; }
+}
+@media (max-width: 480px) {
+  .cb-aliados { padding: 24px 16px; }
+  .cb-aliados__card-img { height:180px; }
+  .cb-aliados__btn { width:100%; }
+}

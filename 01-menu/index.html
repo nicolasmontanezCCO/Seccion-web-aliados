@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 · Menú · Credibanco</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f4f4f4; font-family: system-ui, sans-serif; }
+    .preview-info {
+      padding: clamp(10px,2vw,16px) clamp(16px,4vw,24px);
+      background: #fff3cd; border-bottom: 2px solid #ffc107;
+      font-size: clamp(12px,1.5vw,14px); color: #333; line-height: 1.5;
+    }
+    .preview-info a { color: #067875; }
+  </style>
+</head>
+<body>
+<div class="preview-info">
+  <strong>Vista previa local · 01 Menú</strong> —
+  Para Avada: usa <code>code-block.html</code> + <code>styles.css</code>.
+  <a href="../index.html">← Índice</a>
+</div>
+
+<header class="cb-menu">
+  <div class="cb-menu__util">
+    <a class="cb-menu__util-btn cb-menu__util-btn--hub" href="#">
+      <img src="icono-hub-connect.png" width="24" height="22" alt="" />Hub Connect
+    </a>
+    <a class="cb-menu__util-btn cb-menu__util-btn--ayuda" href="#">
+      <img src="icono-centro-ayuda.png" width="24" height="24" alt="" />Centro de ayuda
+    </a>
+    <a class="cb-menu__util-btn cb-menu__util-btn--dev" href="#">
+      <img src="icono-desarrolladores.png" width="24" height="24" alt="" />Desarrolladores
+    </a>
+  </div>
+  <div class="cb-menu__bar">
+    <a class="cb-menu__logo" href="#" aria-label="Credibanco, ir al inicio">
+      <img src="logo-credibanco-menu.svg" width="182" height="47" alt="" />
+    </a>
+    <nav class="cb-menu__nav" aria-label="Principal">
+      <ul>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">¿Cuál es tu negocio?</a></li>
+        <li><a href="#">¿Por qué credibanco?</a></li>
+        <li><a href="#">Consultas y transacciones</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+</body>
+</html>

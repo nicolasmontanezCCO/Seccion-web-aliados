@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 · Contacto · Credibanco</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #f4f4f4; font-family: system-ui, sans-serif; }
+    .preview-info { padding: clamp(10px,2vw,16px) clamp(16px,4vw,24px); background: #fff3cd; border-bottom: 2px solid #ffc107; font-size: clamp(12px,1.5vw,14px); color: #333; line-height: 1.5; }
+    .preview-info a { color: #067875; }
+  </style>
+</head>
+<body>
+<div class="preview-info">
+  <strong>Vista previa local · 10 Contacto</strong> — Para Avada: <code>code-block.html</code> + <code>styles.css</code> + <code>script.js</code>. <a href="../index.html">← Índice</a>
+</div>
+<section id="contacto" class="cb-contacto" aria-labelledby="cb-contacto-title">
+  <div class="cb-contacto__inner">
+    <div class="cb-contacto__copy">
+      <h2 id="cb-contacto-title" class="cb-contacto__title">Completa la información y<br />te contactamos</h2>
+      <ol class="cb-contacto__pasos">
+        <li><strong>1.</strong> Nos comunicaremos contigo via e-mail para darte acceso a una agenda especial.</li>
+        <li><strong>2.</strong> Agendamos una sesión para entender tus necesidades y resolver tus dudas.</li>
+        <li><strong>3.</strong> Te acompañamos durante la vinculación y posterior a la activación.</li>
+      </ol>
+    </div>
+    <form class="cb-contacto__form" novalidate>
+      <h3 class="cb-contacto__form-title">Formulario de contacto</h3>
+      <div class="cb-contacto__field">
+        <label for="cb-contacto-nombre">Nombres y Apellidos <span class="cb-contacto__req" aria-hidden="true">*</span></label>
+        <input id="cb-contacto-nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej: Melisa González" required />
+        <p class="cb-contacto__error" hidden>Ingresa tus nombres y apellidos.</p>
+      </div>
+      <div class="cb-contacto__field">
+        <label for="cb-contacto-correo">Correo electrónico <span class="cb-contacto__req" aria-hidden="true">*</span></label>
+        <input id="cb-contacto-correo" name="correo" type="email" autocomplete="email" placeholder="Ej: mail@tucorreo.com" required />
+        <p class="cb-contacto__error" hidden>Ingresa un correo electrónico válido.</p>
+      </div>
+      <div class="cb-contacto__field">
+        <label for="cb-contacto-celular">Celular <span class="cb-contacto__req" aria-hidden="true">*</span></label>
+        <input id="cb-contacto-celular" name="celular" type="tel" autocomplete="tel" inputmode="numeric" placeholder="300 000 0000" pattern="3[0-9 ]{9,11}" maxlength="13" data-solo-numeros required />
+        <p class="cb-contacto__error" hidden>Ingresa un número de celular válido.</p>
+      </div>
+      <div class="cb-contacto__field">
+        <label for="cb-contacto-tipo">Tipo de aliado <span class="cb-contacto__req" aria-hidden="true">*</span></label>
+        <select id="cb-contacto-tipo" name="tipo" required>
+          <option value="" selected disabled>Seleccione aquí</option>
+          <option value="comercial">Aliado comercial</option>
+          <option value="tecnologico">Aliado tecnológico</option>
+          <option value="soluciones">Aliado soluciones</option>
+        </select>
+        <p class="cb-contacto__error" hidden>Selecciona un tipo de aliado.</p>
+      </div>
+      <div class="cb-contacto__field">
+        <label for="cb-contacto-origen" class="cb-contacto__label-error">¿Cómo te enteraste de nosotros?</label>
+        <select id="cb-contacto-origen" name="origen">
+          <option value="" selected>Seleccione aquí</option>
+          <option value="web">Sitio web</option>
+          <option value="redes">Redes sociales</option>
+          <option value="referido">Referido</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <fieldset class="cb-contacto__group">
+        <legend>¿Tiene productos activos de Credibanco?</legend>
+        <div class="cb-contacto__radios">
+          <label class="cb-contacto__radio"><input type="radio" name="productos" value="si" /><span>Sí</span></label>
+          <label class="cb-contacto__radio"><input type="radio" name="productos" value="no" /><span>No</span></label>
+        </div>
+      </fieldset>
+      <div class="cb-contacto__field">
+        <div class="cb-contacto__checkbox">
+          <input id="cb-contacto-autorizacion" name="autorizacion" type="checkbox" required />
+          <label for="cb-contacto-autorizacion">AUTORIZACIÓN PARA EL TRATAMIENTO DE DATOS PERSONALES. Al hacer clic en AUTORIZACIÓN, manifiesto que de manera expresa e inequívoca, otorgo el consentimiento para que Credibanco S.A. lleve a cabo el tratamiento de mis datos personales de acuerdo a las finalidades establecidas en la <a href="https://www.credibanco.com/" target="_blank" rel="noopener noreferrer">Política de Protección</a> publicada en www.credibanco.com.</label>
+        </div>
+        <p class="cb-contacto__error" hidden>Debes aceptar la autorización para continuar.</p>
+      </div>
+      <button type="submit" class="cb-contacto__submit">Quiero que me contácten <img src="arrow-right.svg" width="24" height="24" alt="" /></button>
+      <p class="cb-contacto__status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="cb-contacto__modal" data-modal hidden>
+    <div class="cb-contacto__modal-overlay" data-modal-close></div>
+    <div class="cb-contacto__modal-card" role="dialog" aria-modal="true" aria-labelledby="cb-contacto-modal-title" aria-describedby="cb-contacto-modal-desc">
+      <h3 id="cb-contacto-modal-title" class="cb-contacto__modal-title">¡Excelente!</h3>
+      <p id="cb-contacto-modal-desc" class="cb-contacto__modal-text">Nos comunicaremos contigo para darte toda la información sobre la alianza.</p>
+      <button type="button" class="cb-contacto__modal-btn" data-modal-close>Entendido</button>
+    </div>
+  </div>
+</section>
+<script src="script.js"></script>
+</body>
+</html>

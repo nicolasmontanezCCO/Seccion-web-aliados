@@ -1,0 +1,68 @@
+/* =====================================================================
+   SECCIÓN 11 · Footer · Credibanco
+   USO EN AVADA: pegar en Avada > Options > Custom CSS
+   ===================================================================== */
+.cb-footer {
+  --cb-text: #1d1d1d;
+  --cb-font-regular:  "Gilroy-Regular", "Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cb-font-semibold: "Gilroy-SemiBold","Gilroy",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: var(--cb-text);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.cb-footer *, .cb-footer *::before, .cb-footer *::after { box-sizing: border-box; }
+.cb-footer h2, .cb-footer p, .cb-footer ul { margin: 0; padding: 0; }
+.cb-footer ul { list-style: none; }
+.cb-footer img { display: block; }
+.cb-footer a { color: inherit; text-decoration: none; }
+.cb-footer a:hover { text-decoration: underline; }
+.cb-footer a:focus-visible { outline: 3px solid #00afaa; outline-offset: 2px; }
+
+.cb-footer__top {
+  position: relative;
+  display: grid;
+  grid-template-columns: 296px 296px 296px 257px;
+  height: 614px;
+  padding: 104px 0 0 67px;
+}
+.cb-footer__heading { margin-bottom: 21px; font: 400 18.037px/28.86px var(--cb-font-semibold); }
+.cb-footer__col ul  { display:flex; flex-direction:column; gap:10.8px; max-width:254px; font:400 14.43px/21.645px var(--cb-font-regular); }
+.cb-footer__stores  { display:flex; gap:13px; }
+.cb-footer__certs   { margin-top: 36px; }
+.cb-footer .cb-footer__social { flex-direction:row; gap:16px; margin-top:27px; }
+.cb-footer__vigilado { position:absolute; left:48px; top:402px; }
+.cb-footer__bottom {
+  display:flex; align-items:center; justify-content:space-between;
+  height:83px; padding:0 81px 0 49px;
+  background:#fff; font:400 16px/24px var(--cb-font-regular); color:var(--cb-text);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .cb-footer__top {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    padding: clamp(40px,6vw,80px) clamp(24px,4vw,48px);
+    gap: 40px 24px;
+  }
+  .cb-footer__vigilado { position:static; margin-top:24px; }
+}
+@media (max-width: 600px) {
+  .cb-footer__top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 24px;
+  }
+  .cb-footer__bottom {
+    flex-direction:column; gap:16px; height:auto;
+    padding:24px; text-align:center;
+  }
+}
+@media (max-width: 400px) {
+  .cb-footer__top { padding: 32px 16px; }
+  .cb-footer__stores { flex-wrap:wrap; }
+}
