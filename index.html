@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aliados CCO | Credibanco</title>
-  <style>body { margin: 0; background: #fff; } html { scroll-behavior: smooth; }</style>
+  <style>body { margin: 0; background: #fff; } html { scroll-behavior: smooth; }
+  /* Base responsive anti-overflow (solo <=1024px; no altera el desktop) */
+  @media (max-width: 1024px) {
+    html, body { overflow-x: hidden; }
+    img, svg { max-width: 100%; }
+  }</style>
   <!-- Maze: snippet universal de rastreo (una sola vez en toda la pagina) -->
   <script>
   (function (m, a, z, e) {
@@ -64,6 +69,7 @@
         <li><a href="#">Consultas y transacciones</a></li>
       </ul>
     </nav>
+    <span class="cb-menu__burger" aria-hidden="true"></span>
   </div>
 </header>
 
@@ -132,6 +138,48 @@
   transition: background-color .15s ease;
 }
 .cb-menu__nav a:hover { background: #ebfffe; }
+
+/* Hamburguesa decorativa (visible solo en tablet/móvil; icono dibujado con CSS) */
+.cb-menu__burger { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cb-menu {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    height: auto;
+    padding: 16px 48px;
+  }
+  .cb-menu__util { display: none; }
+  .cb-menu__nav { display: none; }
+  .cb-menu__logo img { width: 206px; height: auto; }
+  .cb-menu__burger {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: #1d1d1d;
+    border-radius: 14px;
+  }
+  .cb-menu__burger::before,
+  .cb-menu__burger::after {
+    content: "";
+    position: absolute;
+    left: 13px;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+  }
+  /* Línea superior + inferior (con box-shadow) */
+  .cb-menu__burger::before { top: 16px; box-shadow: 0 8px 0 #fff, 0 16px 0 #fff; }
+  /* La línea media ya la cubre el box-shadow de ::before; ::after se oculta */
+  .cb-menu__burger::after { display: none; }
+}
+@media (max-width: 480px) {
+  .cb-menu { padding: 14px 24px; }
+}
 </style>
 
 <!-- ======== 02-hero.html ======== -->
@@ -216,6 +264,20 @@
 .cb-hero__btn--primary:hover { background: var(--cb-brand-primary-hover); }
 .cb-hero__btn--outline { border: 1.5px solid #fff; color: #fff; }
 .cb-hero__btn--outline:hover { background: rgba(255, 255, 255, .12); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cb-hero { height: auto; padding: 110px 48px 52px; }
+  .cb-hero__content { height: auto; gap: 20px; }
+  .cb-hero__title { white-space: normal; font-size: 44px; line-height: 1.08; }
+  .cb-hero__text { width: 100%; font-size: 18px; line-height: 1.45; }
+}
+@media (max-width: 480px) {
+  .cb-hero { padding: 120px 24px 52px; }
+  .cb-hero__title { font-size: 34px; }
+  .cb-hero__actions { flex-direction: column; width: 100%; }
+  .cb-hero__btn { width: 100%; justify-content: center; }
+}
 </style>
 
 <!-- ======== 03-miga-de-pan.html ======== -->
@@ -256,6 +318,15 @@
 .cb-breadcrumb a:hover { text-decoration: underline; }
 .cb-breadcrumb a:focus-visible { outline: 3px solid #00afaa; outline-offset: 2px; }
 .cb-breadcrumb li[aria-current="page"] { font-family: var(--cb-font-bold); color: #1d1d1d; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cb-breadcrumb { padding: 10px 48px; }
+}
+@media (max-width: 480px) {
+  .cb-breadcrumb { padding: 10px 24px; }
+  .cb-breadcrumb ol { flex-wrap: wrap; }
+}
 </style>
 
 <!-- ======== 04-tipos-aliado.html ======== -->
@@ -568,6 +639,30 @@
 @media (prefers-reduced-motion: reduce) {
   .cb-aliados *, .cb-aliados *::before, .cb-aliados *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cb-aliados { padding: 72px 48px; border-radius: 0; }
+  .cb-aliados__inner { width: 100%; gap: 32px; }
+  .cb-aliados__title { font-size: 38px; line-height: 1.12; }
+  .cb-aliados__cards { width: 100%; margin-top: 0; gap: 16px; }
+  .cb-aliados__card { flex: 1 1 0; width: auto; height: auto; }
+  /* La tarjeta pasa a flujo normal (imagen arriba, texto abajo) */
+  .cb-aliados__card-img { position: static; left: auto; top: auto; width: 100%; height: 180px; }
+  .cb-aliados__card-body { position: static; left: auto; top: auto; width: 100%; padding: 0 18px 20px; }
+  .cb-aliados__detalle { width: 100%; gap: 24px; }
+  .cb-aliados__beneficios { width: auto; flex: 1 1 0; height: auto; }
+  .cb-aliados__portafolio { height: auto; }
+  .cb-aliados__btn { width: 100%; max-width: 292px; }
+}
+@media (max-width: 480px) {
+  .cb-aliados { padding: 56px 24px; }
+  .cb-aliados__title { font-size: 30px; }
+  .cb-aliados__cards { flex-direction: column; }
+  .cb-aliados__card { flex: 1 1 auto; width: 100%; }
+  .cb-aliados__detalle { flex-direction: column; }
+  .cb-aliados__beneficios { width: 100%; }
+}
 </style>
 
 <script>
@@ -868,6 +963,107 @@
     transform: none !important;
   }
 }
+
+/* ---------- Responsive ----------
+   En tablet/móvil se desactiva la mecánica de superposición + hover y se
+   muestran DOS bloques apilados SIEMPRE visibles: banner oscuro (título) +
+   bloque claro "Proceso de vinculación" con 3 pasos en lista vertical. */
+@media (max-width: 1024px) {
+  .cb-vincularte { height: auto; overflow: visible; }
+  /* Las dos capas pasan a flujo normal, apiladas y siempre visibles */
+  .cb-vincularte__default,
+  .cb-vincularte__hover {
+    position: static;
+    inset: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+    pointer-events: auto;
+  }
+  /* Neutraliza el disparador hover/focus (ya no revela nada: todo visible) */
+  .cb-vincularte:hover .cb-vincularte__default,
+  .cb-vincularte:focus-within .cb-vincularte__default { opacity: 1; transform: none; }
+  .cb-vincularte:hover .cb-vincularte__hover,
+  .cb-vincularte:focus-within .cb-vincularte__hover { opacity: 1; transform: none; }
+
+  /* ----- Banner oscuro (solo título) ----- */
+  .cb-vincularte__default {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 240px;
+    padding: 72px 48px;
+    overflow: hidden;
+  }
+  .cb-vincularte__layer {
+    position: absolute;
+    inset: 0;
+    top: 0 !important;
+    width: 100%;
+    height: 100%;
+  }
+  .cb-vincularte__layer img { width: 100%; height: 100%; object-fit: cover; }
+  .cb-vincularte__title {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 430px;
+    margin: 0;
+    font-size: 46px;
+    line-height: 1.08;
+  }
+
+  /* ----- Bloque claro: proceso de vinculación ----- */
+  .cb-vincularte__hover {
+    display: block;
+    background: #fff;
+    padding: 72px 48px;
+  }
+  .cb-vincularte__block { position: static; width: 100%; height: auto; }
+  .cb-vincularte__photo { display: none; }
+  .cb-vincularte__panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    border-radius: 0;
+  }
+  .cb-vincularte__content {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+    transform: none;
+    gap: 32px;
+  }
+  .cb-vincularte__heading {
+    font-size: 38px;
+    color: #1d1d1d;
+    text-shadow: none;
+  }
+  /* Cada paso como tarjeta clara */
+  .cb-vincularte__step {
+    background: #f6f9fc;
+    border-radius: 16px;
+    padding: 24px;
+    gap: 18px;
+  }
+  .cb-vincularte__badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #00afaa;
+    font-size: 18px;
+  }
+  .cb-vincularte__badge--ring::before { display: none; }
+}
+@media (max-width: 480px) {
+  .cb-vincularte__default { min-height: 200px; padding: 72px 24px; }
+  .cb-vincularte__title { font-size: 38px; }
+  .cb-vincularte__hover { padding: 56px 24px; }
+  .cb-vincularte__heading { font-size: 30px; }
+  .cb-vincularte__step-head { flex-wrap: nowrap; }
+}
 </style>
 
 <!-- ======== 06-beneficios.html ======== -->
@@ -1004,6 +1200,46 @@
   margin-left: 80px;
   font: 400 24px/normal var(--cb-font-regular);
 }
+
+/* ---------- Responsive ----------
+   Flujo vertical: copy arriba, tarjetas #ebfffe debajo (sin scroll fijo). */
+@media (max-width: 1024px) {
+  .cb-beneficios { padding: 72px 48px; }
+  .cb-beneficios__inner { flex-direction: column; align-items: stretch; width: 100%; gap: 28px; }
+  .cb-beneficios__copy { width: 100%; }
+  .cb-beneficios__title { font-size: 42px; line-height: 1.12; }
+  .cb-beneficios__text { width: 100%; }
+  .cb-beneficios__scroll {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .cb-beneficios__item {
+    flex: 1 1 328px;
+    min-width: 280px;
+    height: auto;
+    min-height: 132px;
+    padding: 22px;
+    gap: 16px;
+    background: #ebfffe;
+    border-radius: 20px;
+    box-shadow: 0 4px 2px rgba(67, 67, 67, .08);
+  }
+  .cb-beneficios__item::before,
+  .cb-beneficios__item::after { content: none; }
+  .cb-beneficios__icon { position: static; left: auto; top: auto; width: 55.52px; height: 55.52px; }
+  .cb-beneficios__item p { position: static; width: auto; margin-left: 0; font-size: 18px; line-height: 1.35; flex: 1; }
+}
+@media (max-width: 480px) {
+  .cb-beneficios { padding: 56px 24px; }
+  .cb-beneficios__title { font-size: 32px; }
+  .cb-beneficios__scroll { flex-direction: column; }
+  .cb-beneficios__item { flex: 1 1 auto; width: 100%; }
+}
 </style>
 
 <!-- ======== 07-resultados.html ======== -->
@@ -1048,6 +1284,23 @@
 .cb-resultados__stat { display: flex; flex-direction: column; gap: 16px; }
 .cb-resultados__stat dt { font: 400 80px/88px var(--cb-font-medium); white-space: nowrap; }
 .cb-resultados__stat dd { font: 400 16px/24px var(--cb-font-regular); color: var(--cb-error); }
+
+/* ---------- Responsive ----------
+   Flujo vertical: título arriba, 4 cifras como tarjetas blancas debajo. */
+@media (max-width: 1024px) {
+  .cb-resultados { padding: 72px 48px; }
+  .cb-resultados__inner { flex-direction: column; align-items: stretch; width: 100%; gap: 36px; }
+  .cb-resultados__title { width: 100%; font-size: 44px; line-height: 1.12; }
+  .cb-resultados__grid { display: flex; flex-wrap: wrap; width: 100%; gap: 24px; }
+  .cb-resultados__stat { flex: 1 1 324px; min-width: 280px; background: #fff; border-radius: 16px; padding: 24px; gap: 12px; }
+  .cb-resultados__stat dt { font-size: 60px; line-height: normal; }
+}
+@media (max-width: 480px) {
+  .cb-resultados { padding: 56px 24px; }
+  .cb-resultados__title { font-size: 34px; }
+  .cb-resultados__stat { flex: 1 1 auto; width: 100%; }
+  .cb-resultados__stat dt { font-size: 52px; }
+}
 </style>
 
 <!-- ======== 08-faq.html ======== -->
@@ -1159,6 +1412,35 @@
 .cb-faq__trigger[aria-expanded="true"] img { transform: rotate(180deg); }
 .cb-faq__panel { padding: 0 16px 16px; }
 .cb-faq__panel p { font: 400 12px/16px "Century Gothic", var(--cb-font-regular); color: #000; }
+
+/* ---------- Responsive ----------
+   Una sola columna: imagen banner superior, luego título/subtítulo, tabs y
+   acordeón a ancho completo. */
+@media (max-width: 1024px) {
+  .cb-faq { flex-direction: column; height: auto; padding: 72px 48px; gap: 24px; }
+  .cb-faq__aside { flex-direction: column; width: 100%; height: auto; padding: 0; gap: 24px; }
+  .cb-faq__heading { padding: 0; white-space: normal; }
+  .cb-faq__title { font-size: 40px; }
+  .cb-faq__img { order: -1; width: 100%; height: 290px; border-radius: 24px; }
+  .cb-faq__img img { position: static; left: auto; width: 100%; height: 100%; object-fit: cover; }
+  .cb-faq__main { width: 100%; padding: 0; gap: 16px; }
+  .cb-faq__tabs { width: 100%; flex-wrap: wrap; gap: 8px; }
+  .cb-faq__tab {
+    flex: 0 0 auto;
+    height: auto;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 12px;
+    background: #f6f9fc;
+  }
+  .cb-faq__tab.is-active { background: #ebfffe; border: 0; color: #000; }
+  .cb-faq__accordion { width: 100%; }
+}
+@media (max-width: 480px) {
+  .cb-faq { padding: 56px 24px; }
+  .cb-faq__title { font-size: 30px; }
+  .cb-faq__img { height: 220px; }
+}
 </style>
 
 <script>
@@ -1248,6 +1530,17 @@
   text-align: center;
 }
 .cb-entidades__logos { position: absolute; top: 36px; left: 0; display: block; width: 1280px; max-width: none; height: 359px; }
+
+/* ---------- Responsive ----------
+   La imagen de logos pasa a flujo y se vuelve fluida (sin desbordar). */
+@media (max-width: 1024px) {
+  .cb-entidades { height: auto; padding-bottom: 32px; }
+  .cb-entidades__title { padding-top: 56px; padding-left: 48px; padding-right: 48px; font-size: 32px; }
+  .cb-entidades__logos { position: static; top: auto; left: auto; width: 100%; max-width: 100%; height: auto; margin-top: 24px; }
+}
+@media (max-width: 480px) {
+  .cb-entidades__title { padding-top: 40px; padding-left: 24px; padding-right: 24px; font-size: 26px; }
+}
 </style>
 
 <!-- ======== 10-contacto.html ======== -->
@@ -1512,6 +1805,23 @@
   .cb-contacto__modal-overlay,
   .cb-contacto__modal-card { animation: none; }
 }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cb-contacto { padding: 72px 48px; }
+  .cb-contacto__inner { width: 100%; gap: 36px; }
+  .cb-contacto__copy { flex: 1 1 0; width: auto; min-width: 0; }
+  .cb-contacto__title { font-size: 42px; line-height: 1.12; }
+  .cb-contacto__pasos { width: 100%; }
+  .cb-contacto__form { flex: 0 0 400px; width: 400px; }
+}
+@media (max-width: 480px) {
+  .cb-contacto { padding: 56px 24px; }
+  .cb-contacto__inner { flex-direction: column; align-items: stretch; }
+  .cb-contacto__copy { width: 100%; }
+  .cb-contacto__title { font-size: 34px; }
+  .cb-contacto__form { flex: 1 1 auto; width: 100%; padding: 32px 20px; }
+}
 </style>
 
 <script>
@@ -1728,6 +2038,23 @@
   background: #fff;
   font: 400 16px/24px var(--cb-font-regular);
   color: var(--cb-text);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cb-footer__top {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    padding: 56px 48px 32px;
+    gap: 40px 28px;
+  }
+  .cb-footer__vigilado { position: static; left: auto; top: auto; margin-top: 8px; grid-column: 1 / -1; }
+  .cb-footer__col ul { max-width: none; }
+  .cb-footer__bottom { height: auto; padding: 24px 48px; gap: 16px; }
+}
+@media (max-width: 480px) {
+  .cb-footer__top { grid-template-columns: 1fr; padding: 56px 24px 32px; gap: 32px; }
+  .cb-footer__bottom { flex-direction: column; align-items: flex-start; padding: 24px; gap: 12px; }
 }
 </style>
 
